@@ -18,14 +18,9 @@ Scanner scan = new Scanner(System.in);
            this.volume = volume;
        }
 
-    public Mennager() {
-
-    }
-
-
+    public Mennager() {}
     ArrayList sortiment = new ArrayList<>();
      public void dobavlenie(){
-
          System.out.println("Введите название марки: ");
          String markaV = scan.next();
         System.out.println("Введите название модели: ");
@@ -36,12 +31,9 @@ Scanner scan = new Scanner(System.in);
         int ageV = scan.nextInt();
         System.out.println("Введите объем двигателя: ");
         float volumeV = scan.nextFloat();
-
-         Mennager car = new Mennager(markaV, modelV, colorV, ageV, volumeV);
+        Mennager car = new Mennager(markaV, modelV, colorV, ageV, volumeV);
         sortiment.add(car);
         System.out.println("Автомобиль добавлен! ");
-
-
     }
 
      public void prosmotr(){
