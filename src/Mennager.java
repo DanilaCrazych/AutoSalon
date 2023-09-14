@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 public class Mennager {
 Scanner scan = new Scanner(System.in);
@@ -34,9 +35,23 @@ Scanner scan = new Scanner(System.in);
         Mennager car = new Mennager(markaV, modelV, colorV, ageV, volumeV);
         sortiment.add(car);
         System.out.println("Автомобиль добавлен! ");
+
+    }
+    @Override
+    public String toString (){
+         return "\nмарка :" +marka +
+                 "\nМодель: " +model+
+                 "\nЦвет: " +color+
+                 "\nГод: " +age+
+                 "\nОбъем: " +volume+ "\n---------";
     }
 
      public void prosmotr(){
-        System.out.println();
+        sortiment.forEach(new Consumer() {
+            @Override
+            public void accept(Object o) {
+                System.out.println(o);
+            }
+        });
     }
 }
