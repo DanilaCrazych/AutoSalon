@@ -20,38 +20,37 @@ Scanner scan = new Scanner(System.in);
        }
 
     public Mennager() {}
-    ArrayList sortiment = new ArrayList<>();
+    ArrayList<Mennager> sortiment = new ArrayList<>();
      public void dobavlenie(){
-         System.out.println("Введите название марки: ");
-         String markaV = scan.next();
-        System.out.println("Введите название модели: ");
-        String modelV = scan.next();
-        System.out.println("Введите цвет автомобиля: ");
-        String colorV = scan.next();
-        System.out.println("Введите год производства: ");
-        int ageV = scan.nextInt();
-        System.out.println("Введите объем двигателя: ");
-        float volumeV = scan.nextFloat();
-        Mennager car = new Mennager(markaV, modelV, colorV, ageV, volumeV);
-        sortiment.add(car);
-        System.out.println("Автомобиль добавлен! ");
+         try{
+             System.out.println("Введите название марки: ");
+             String markaV = scan.next();
+             System.out.println("Введите название модели: ");
+             String modelV = scan.next();
+             System.out.println("Введите цвет автомобиля: ");
+             String colorV = scan.next();
+             System.out.println("Введите год производства: ");
+             int ageV = scan.nextInt();
+             System.out.println("Введите объем двигателя: ");
+             float volumeV = scan.nextFloat();
+             Mennager car = new Mennager(markaV, modelV, colorV, ageV, volumeV);
+             sortiment.add(car);
+             System.out.println("Автомобиль добавлен! ");
+         }catch (Exception e)
+         {
+             System.out.println("Ошибка!");
+         }
 
-    }
-    @Override
-    public String toString (){
-         return "\nмарка :" +marka +
-                 "\nМодель: " +model+
-                 "\nЦвет: " +color+
-                 "\nГод: " +age+
-                 "\nОбъем: " +volume+ "\n---------";
+
     }
 
      public void prosmotr(){
-        sortiment.forEach(new Consumer() {
-            @Override
-            public void accept(Object o) {
-                System.out.println(o);
-            }
-        });
+         try {
+             for (int i =1; i<=sortiment.size(); i++){
+                 System.out.println("Номер: "+i+""+"\nМарка: "+sortiment.get(i-1).marka + "\nМодель: " +sortiment.get(i-1).model+
+                         "\nЦвет: "+sortiment.get(i-1).color+ "\nГод: "+sortiment.get(i-1).age+
+                         "\nОбъем дрыгателя: "+sortiment.get(i-1).volume+"\n--------");
+             }
+         }catch (Exception e){System.out.println("Ошибка!");}
     }
 }
